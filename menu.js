@@ -1,13 +1,13 @@
 function main_menu_links(option) {
 
     if (option == "start") {
-        window.location.replace('https://team12-ict2201.glitch.me/map_page.html');
+        window.location.replace('https://2x01t12.glitch.me/map_page.html');
     }
     else if (option == "tut") {
-        window.location.replace('https://team12-ict2201.glitch.me/tutorial_page.html');
+        window.location.replace('https://2x01t12-ict2201.glitch.me/tutorial_page.html');
     }
     else if (option == "setting") {
-        window.location.replace('https://team12-ict2201.glitch.me/setting_page.html');
+        window.location.replace('https://2x01t12-ict2201.glitch.me/setting_page.html');
     }
     else {
         // Quits Game
@@ -20,7 +20,7 @@ function main_menu_links(option) {
 function tutorial_links(option) {
 
     if (option == "start") {
-        window.location.replace('https://team12-ict2201.glitch.me/map_page.html');
+        window.location.replace('https://2x01t12-ict2201.glitch.me/map_page.html');
     }
 }
 
@@ -38,7 +38,7 @@ function goto_vehicle_page() {
     }
 
 
-    window.location.replace('https://team12-ict2201.glitch.me/vehicle_page.html');
+    window.location.replace('https://2x01t12.glitch.me/vehicle_page.html');
 
 
 }
@@ -57,7 +57,7 @@ function start_gameplay() {
     }
 
 
-    window.location.replace('https://team12-ict2201.glitch.me/index.html');
+    window.location.replace('https://2x01t12.glitch.me/index.html');
 
 
 }

@@ -71,7 +71,7 @@ function addCollisionEvents() {
         localStorage.setItem('finalScore', highScore.toString());
 
         if (e.detail.body.el.id == "goal") {
-            window.location.replace("https://team12-ict2201.glitch.me/end.html");
+            window.location.replace("https://2x01t12.glitch.me/end.html");
         }
 //   else if (e.detail.body.el.id == "quick_time_event")
 //   {
