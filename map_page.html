@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <title>Educycle - Team 12</title>
     <meta name="description" content="Educycle - Team 12">
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
     <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
-    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
-    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script> 
     <script src="set-image.js"></script>
 </head>
 <body>
@@ -19,16 +19,20 @@
         <img id="city-thumb" crossorigin="anonymous"
              src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fcity_thumb.PNG?1542032242431">
 
-        <img id="park" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fpark.jpg?1542033280985">
-        <img id="park-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fpark_thumb.PNG?1542032454730">
+        <img id="daypark" crossorigin="anonymous"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fhawaii-bridge-over-kolekole-stream-at-kolekol.jpg?1542980344548">
+        <img id="daypark-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fdayparkmenu.PNG?1542896480882">
+        <img id="nightpark" crossorigin="anonymous"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fnightpark.jpg?1542896055235">
+        <img id="nightpark-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fnightparkmenu.PNG?1542896481001">
 
         <audio id="click-sound" crossorigin="anonymous"
                src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
 
-        <img id="cfm-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2FConfirm.PNG?1542120503383">
+<!--         <img id="cfm-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2FConfirm.PNG?1542120503383"> -->
 
         <img id="back-thumb" crossorigin="anonymous"
              src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fback.PNG?1542205366899">
@@ -61,23 +65,31 @@
     </a-assets>
 
     <!-- 360-degree image. -->
+    <a-entity id="sound" sound="src: #click-sound; autoplay: true; volume: 2;"></a-entity>
     <a-sky id="image-360" radius="10" src="#city"></a-sky>
 
-    <a-text value="Select a Map" position="-0.5 0.5 -4" color="black" height="5"></a-text>
+    <a-text value="Select a Map" position="-0.5 0.5 -4" color="red" height="5"></a-text>
 
     <!-- Image links. -->
-    <a-entity id="links" layout="type: line; margin: 1.5" position="-1 -1 -4">
-        <a-entity template="src: #link" data-src="#park" data-thumb="#park-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
+    <a-entity layout="type: line; margin: 1.5" position="-3 -1 -4">
+        <a-entity template="src: #link" data-src="#daypark" data-thumb="#daypark-thumb" onclick="play_sound()"></a-entity>
+    </a-entity>
+  
+    <a-entity layout="type: line; margin: 1.5" position="-1 -1 -4">
+        <a-entity template="src: #link" data-src="#nightpark" data-thumb="#nightpark-thumb" onclick="play_sound()"></a-entity>
+    </a-entity>
+  
+    <a-entity layout="type: line; margin: 1.5" position="1 -1 -4">
+        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb" onclick="play_sound()"></a-entity>
     </a-entity>
 
-    <a-entity id="confirms" layout="type: line; margin: 1.5" position="-1 -3 -4">
+    <a-entity id="confirms" layout="type: line; margin: 1.5" position="3 -1 -4">
 
-        <a-entity id="confirmbtn" onclick="goto_vehicle_page()" template="src: #confirm" data-src="#nxt"
-                  data-thumb="#cfm-thumb"></a-entity>
+<!--         <a-entity id="confirmbtn" onclick="goto_vehicle_page()" template="src: #confirm" data-src="#nxt"
+                  data-thumb="#cfm-thumb"></a-entity> -->
 
         <a-entity id="backbtn"
-                  onclick="window.location.replace('https://team12-ict2201.glitch.me/main_menu_page.html');"
+                  onclick="window.location.replace('https://2x01t12.glitch.me/DesignInt.html');"
                   template="src: #confirm" data-src="#nxt" data-thumb="#back-thumb"></a-entity>
 
     </a-entity>

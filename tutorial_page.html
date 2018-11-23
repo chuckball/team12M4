@@ -4,16 +4,18 @@
     <meta charset="utf-8">
     <title>Educycle - Team 12</title>
     <meta name="description" content="Educycle - Team 12">
-    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
     <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
     <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
-    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
-    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script> 
     <script src="set-image.js"></script>
 </head>
 <body>
 <a-scene>
     <a-assets>
+        <audio id="click-sound" crossorigin="anonymous"
+               src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fclick.ogg?1542978996494"></audio>
         <img id="start" crossorigin="anonymous"
              src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fmordern.jpg?1542204127841">
         <img id="start-thumb" crossorigin="anonymous"
@@ -48,12 +50,13 @@
 
     <!-- 360-degree image. -->
     <a-sky id="image-360" radius="50" src="#start"></a-sky>
+    <a-entity id="sound" sound="src: #click-sound; autoplay: true; volume: 2;"></a-entity>
 
     <a-image src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Ftutorial.jpeg?1542721892456"
-             position="-2.5 1.5 -10" height="10" width="25"></a-image>
+             position="0 1.5 -10" height="10" width="25"></a-image>
 
     <!-- Image links. -->
-    <a-entity id="links" layout="type: line; margin: 1.5" position="-1 0 -4">
+    <a-entity id="links" layout="type: line; margin: 1.5" position="0 1.5 -4" onclick="play_sound()">
         <a-entity onclick="tutorial_links('start');" template="src: #link" data-src="#start"
                   data-thumb="#start-thumb"></a-entity>
     </a-entity>
