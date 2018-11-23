@@ -42,7 +42,7 @@
     </a-entity>
     <!--<a-box link="href: https://github.com/gasolin/aframe-href-component" position="0 3.5 -2" rotation="30 30 0" width="2" depth="2" height="2" color="#F16745" ></a-box>
     -->
-    <a-sky src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fhawaii-bridge-over-kolekole-stream-at-kolekol.jpg?1542980344548"></a-sky>
+    <a-sky src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fcity.jpg?1542076652922"></a-sky>
     <!-- High res skies -->
 <!--     <a-sky src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2F33668382931_12240c6935_o.jpg?1536413956692"></a-sky> -->
 
@@ -91,7 +91,7 @@
         <!-- Animation Timeline/Order -->
         <a-timeline id="myTimeline">
             
-<!--            <a-timeline-animation select=".man1" name="forward"></a-timeline-animation> -->
+           <a-timeline-animation select=".man1" name="forward"></a-timeline-animation>
           <a-timeline-animation select=".man2" name="man2_forward"></a-timeline-animation>
           <a-timeline-animation select=".man3" name="man3_forward"></a-timeline-animation>
     
@@ -99,7 +99,7 @@
            
             
             
-<!--             <a-timeline-animation select=".man1" name="rotate"></a-timeline-animation> -->
+            <a-timeline-animation select=".man1" name="rotate"></a-timeline-animation>
             <a-timeline-animation select=".man2" name="man2_rotate"></a-timeline-animation>
             <a-timeline-animation select=".man3" name="man3_rotate"></a-timeline-animation>
             
@@ -108,11 +108,11 @@
             
           </a-timeline-group>
  
-<!--             <a-timeline-animation select=".man1" name="forward2"></a-timeline-animation> -->
+            <a-timeline-animation select=".man1" name="forward2"></a-timeline-animation>
           <a-timeline-animation select=".man2" name="man2_forward2"></a-timeline-animation>
           <a-timeline-animation select=".man3" name="man3_forward2"></a-timeline-animation>
           
-<!--           <a-timeline-animation select=".man1" name="rotate2"></a-timeline-animation> -->
+          <a-timeline-animation select=".man1" name="rotate2"></a-timeline-animation>
           <a-timeline-animation select=".man2" name="man2_rotate2"></a-timeline-animation>
           <a-timeline-animation select=".man3" name="man3_rotate2"></a-timeline-animation>
           
@@ -122,12 +122,12 @@
         <!-- Mixins -->
       
 
-<!--         <a-mixin id="man1Move"
+        <a-mixin id="man1Move"
                  animation__forward="property: position; from: -10 1 0;to: 10 1 0; dur:5000; autoplay:false"
                  animation__rotate="property: rotation; from: 0 0 0;to: 0 180 0; dur:1500; autoplay:false"
                  animation__forward2="property: position; from: 10 1 0;to: -10 1 0; dur:5000; autoplay:false"
                  animation__rotate2="property: rotation; from: 0 180 0;to: 0 0 0; dur:1500; autoplay:false"
-        ></a-mixin> -->
+        ></a-mixin>
       
        <a-mixin id="man2Move"
                animation__man2_forward="property: position; from: -40 1 -229;to: -3 1 -272; dur:15000; autoplay:false"
@@ -149,11 +149,11 @@
     
   
     <!-- Moving Entities -->
-<!--     <a-entity id="man1" class="man1 collision" width="0" height="0" depth="0" mixin="man1Move" position="0 0 0"
+    <a-entity id="man1" class="man1 collision" width="0" height="0" depth="0" mixin="man1Move" position="0 0 0"
               kinematic-body>
         <a-entity gltf-model="#manModel1" width="0" height="0" depth="0" scale="0.01 0.01 0.01" rotation="0 270 0"
                   animation-mixer></a-entity>
-    </a-entity> -->
+    </a-entity>
    <a-entity id="man2" class="man2 collision" width="0" height="0" depth="0" mixin="man2Move" position="-40 1 -229"
               kinematic-body>
         <a-entity gltf-model="#manModel1" width="0" height="0" depth="0" scale="0.01 0.01 0.01" rotation="0 225 0"

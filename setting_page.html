@@ -14,22 +14,19 @@
 <body>
 <a-scene>
     <a-assets>
+      
         <img id="start" crossorigin="anonymous"
              src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fmordern.jpg?1542204127841">
-        <img id="start-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fstart.PNG?1542200657765">
+        <img id="sound-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fimage.png?1542896712993">
 
 
-        <img id="tutorial-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Ftutorial.PNG?1542200657542">
+        <img id="brightness-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fbrightnessmenu.PNG?1542896673145">
 
 
-        <img id="settings-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fsetting.PNG?1542200859939">
-
-
-        <img id="quit-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fquit.PNG?1542200657515">
+        <img id="back-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fback.PNG?1542205366899">
 
         <audio id="click-sound" crossorigin="anonymous"
                src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
@@ -73,21 +70,17 @@
     <a-text value="Welcome to Educycle!" position="-3 1.5 -4" color="black" height="333" width="20"></a-text>
 
     <!-- Image links. -->
-    <a-entity id="links" layout="type: line; margin: 1.5" position="-3 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('start');" template="src: #link" data-src="#start"
-                  data-thumb="#start-thumb"></a-entity>
+    <a-entity id="links" layout="type: line; margin: 1.5" position="-2 -1 -4" onclick="play_sound()">
+        <a-entity onclick="settings_links('sound');" template="src: #link" data-src="#start"
+                  data-thumb="#sound-thumb"></a-entity>
     </a-entity>
-    <a-entity layout="type: line; margin: 1.5" position="-1 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('tut');" template="src: #link" data-src="#start"
-                  data-thumb="#tutorial-thumb"></a-entity>
+    <a-entity layout="type: line; margin: 1.5" position="0 -1 -4" onclick="play_sound()">
+        <a-entity onclick="settings_links('brightness');" template="src: #link" data-src="#start"
+                  data-thumb="#brightness-thumb"></a-entity>
     </a-entity>
-    <a-entity layout="type: line; margin: 1.5" position="1 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('setting');" template="src: #link" data-src="#start"
-                  data-thumb="#settings-thumb"></a-entity>
-    </a-entity>
-    <a-entity layout="type: line; margin: 1.5" position="3 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('quit');" template="src: #link" data-src="#start"
-                  data-thumb="#quit-thumb"></a-entity>
+    <a-entity layout="type: line; margin: 1.5" position="2 -1 -4" onclick="play_sound()">
+        <a-entity onclick="settings_links('back');" template="src: #link" data-src="#start"
+                  data-thumb="#back-thumb"></a-entity>
     </a-entity>
     
 
