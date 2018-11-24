@@ -20,7 +20,7 @@ meant to be a substitute for learning how to ride a physical bicycle/PMD
 Insert HTML link into the web browser.
 
 Game
-* https://chuckball.github.io/team12M4/main_menu_page.html
+* https://chuckball.github.io/team12M4
 
 Designer Interface Login
 * https://chuckball.github.io/team12M4/login.html

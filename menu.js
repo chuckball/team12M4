@@ -20,7 +20,7 @@ function main_menu_links(option) {
 function levels_links(option) {
 
     if (option == "easy") {
-        window.location.replace('https://2x01t12.glitch.me/index.html');
+        window.location.replace('https://2x01t12.glitch.me/daypark.html');
     }
     else if (option == "medium") {
         window.location.replace('https://2x01t12.glitch.me/city.html');
@@ -33,7 +33,7 @@ function levels_links(option) {
         var rand = Math.random()
         // 50% chance of getting either settings
         if (rand > 0.66) {
-          window.location.replace('https://2x01t12.glitch.me/index.html');
+          window.location.replace('https://2x01t12.glitch.me/daypark.html');
         } else if (rand > 0.33) {
           window.location.replace('https://2x01t12.glitch.me/city.html');
         } else {
@@ -46,7 +46,7 @@ function levels_links(option) {
 function tutorial_links(option) {
 
     if (option == "start") {
-        window.location.replace('https://2x01t12.glitch.me/main_menu_page.html');
+        window.location.replace('https://2x01t12.glitch.me/index.html');
     }
 }
 
@@ -60,7 +60,7 @@ function review_links(option) {
 function settings_links(option) {
 
     if (option == "back") {
-        window.location.replace('https://2x01t12.glitch.me/main_menu_page.html');
+        window.location.replace('https://2x01t12.glitch.me/index.html');
     }
 }
 
