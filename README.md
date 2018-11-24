@@ -26,7 +26,7 @@ Designer Interface Login
 * https://chuckball.github.io/team12M4/login.html
 
 ## Video
-* youtube.com
+* https://www.youtube.com/watch?v=AHC1dZ2flR8
 
 
 ## Built With
