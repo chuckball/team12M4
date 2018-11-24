@@ -1,334 +1,109 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Educycle</title>
-    <meta name="description" content="Textures - A-Frame School">
+    <meta charset="utf-8">
+    <title>Educycle - Team 12</title>
+    <meta name="description" content="Educycle - Team 12">
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
-    <script src="https://cdn.rawgit.com/ngokevin/kframe/master/components/animation-timeline/dist/aframe-animation-timeline-component.min.js"></script>
-    <script src="https://cdn.rawgit.com/ngokevin/kframe/master/components/animation/dist/aframe-animation-component.min.js"></script>
-    <script src="https://rawgit.com/Utopiah/aframe-triggerbox-component/master/aframe-triggerbox-component.js"></script>
-
-    <script src="events.js"></script>
-    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
-
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script> 
+    <script src="set-image.js"></script>
 </head>
-
-
-<body onload="init()">
-<a-scene animation-timeline__1="timeline: #myTimeline;loop: true">
-    <!-- Camera -->
-  <a-entity movement-controls>
-    <a-entity camera="active: true" width="0" height="0" depth="0" rotate="90 0 90" look-controls position="0 3.5 40"
-              wasd-controls="acceleration: 500; " kinematic-body >
-        <a-entity geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" position="0 0 -1"
-                  material="color: gray; opacity: 0.5" cursor="fuse: true; fuseTimeout: 1500"></a-entity>
-
-        <a-entity id="bell" sound="src: #bell_ring; autoplay: true; volume: 2;"></a-entity>
-      
-        <a-entity id="transport_model" rotation="0 90 0" scale="0.01 0.01 0.01" gltf-model="#scooter" width="0"
-                  height="0" depth="0" position="0 -1 0"></a-entity>
-
-        <a-text id="scor" value="score:" font="exo2bold" color="black" height="2" width="2" position="0 1 -2"></a-text>
-        <a-text id="score" value="100" font="exo2bold" color="black" height="2" width="2" position="0.3 1 -2"></a-text>
-        <a-text id="wrongthings" value="" font="exo2bold" color="red" height="2" width="2" position="-3 1 -2"></a-text>
-        <a-text id="goodthings" value="" font="exo2bold" color="lightgreen" height="2" width="2" position="1 1 -2"></a-text>
-
-        <a-animation begin="click" easing="ease-in" attribute="scale" dur="150"
-                     fill="forwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
-        <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="1500"
-                     fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
-
-    </a-entity>
-  </a-entity>
-    <!--<a-box link="href: https://github.com/gasolin/aframe-href-component" position="0 3.5 -2" rotation="30 30 0" width="2" depth="2" height="2" color="#F16745" ></a-box>
-    -->
-    <a-sky src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fhawaii-bridge-over-kolekole-stream-at-kolekol.jpg?1542980344548"></a-sky>
-    <!-- High res skies -->
-<!--     <a-sky src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2F33668382931_12240c6935_o.jpg?1536413956692"></a-sky> -->
-
-<!--     <a-sky rotation="0 180 0" src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fdaypark.jpg?1542896055834"></a-sky>
- -->
-    <a-plane static-body
-             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fgrassroad1.jpg?1542991501273"
-             rotation="-90 0 0" height="900" width="100"  position="-5 0 -270"></a-plane>
-
-    <a-light type="ambient" color="#666"></a-light>
-    <a-light type="point" intensity="" position="-10 4 50"></a-light>
-
+<body>
+<a-scene>
     <a-assets>
-        <a-asset-item id="optimerBoldFont"
-                      src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
-
-        <!-- Models -->
-        <a-asset-item id="manModel1"
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/person_x/scene.gltf"></a-asset-item>
-        <a-asset-item id="tree"
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/tree/scene.gltf"></a-asset-item>
-        <a-asset-item id="tree2"
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/grassland_tree_-_smashy_craft_series_-_free/scene.gltf"></a-asset-item>
-        <a-asset-item id="trafficlight"
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/traffic_light__animation/scene.gltf"></a-asset-item>
-        <a-asset-item id="manModel2"
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/breakdance_freeze_var_21/scene.gltf"></a-asset-item>
-        <a-asset-item id="yellowcar"
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/yellowcar/scene.gltf"></a-asset-item>
-        <a-asset-item id="whitecar"
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/whitecar/scene.gltf"></a-asset-item>
-        <a-asset-item id="bicycle"
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/bicycle/scene.gltf"></a-asset-item>
-        <a-asset-item id="scooter"
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/razor_scooter/scene.gltf"></a-asset-item>
-        <a-asset-item id="motorcycle"
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/motorcycle2/scene.gltf"></a-asset-item>
-        <a-asset-item id="dog" 
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/dog_run_cycle_test/scene.gltf"></a-asset-item>
-         <a-asset-item id="treasure" 
-                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/treasure_box/scene.gltf"></a-asset-item>
-      
-      <audio id="dog_bark" crossorigin="anonymous" src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2FDog%20Howling%20At%20Moon-SoundBible.com-1369876823.mp3?1542887676725"></audio>
-    <audio id="bell_ring" crossorigin="anonymous" src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2FBicycle%20Bell%20Ringing-SoundBible.com-607558103.mp3?1542888989127"></audio>
-
-        <!-- Animation Timeline/Order -->
-        <a-timeline id="myTimeline">
-            
-<!--            <a-timeline-animation select=".man1" name="forward"></a-timeline-animation> -->
-          <a-timeline-animation select=".man2" name="man2_forward"></a-timeline-animation>
-          <a-timeline-animation select=".man3" name="man3_forward"></a-timeline-animation>
-    
-          <a-timeline-group>
-           
-            
-            
-<!--             <a-timeline-animation select=".man1" name="rotate"></a-timeline-animation> -->
-            <a-timeline-animation select=".man2" name="man2_rotate"></a-timeline-animation>
-            <a-timeline-animation select=".man3" name="man3_rotate"></a-timeline-animation>
-            
-           
-            
-            
-          </a-timeline-group>
- 
-<!--             <a-timeline-animation select=".man1" name="forward2"></a-timeline-animation> -->
-          <a-timeline-animation select=".man2" name="man2_forward2"></a-timeline-animation>
-          <a-timeline-animation select=".man3" name="man3_forward2"></a-timeline-animation>
-          
-<!--           <a-timeline-animation select=".man1" name="rotate2"></a-timeline-animation> -->
-          <a-timeline-animation select=".man2" name="man2_rotate2"></a-timeline-animation>
-          <a-timeline-animation select=".man3" name="man3_rotate2"></a-timeline-animation>
-          
-        </a-timeline>
+        <img id="start" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fmordern.jpg?1542204127841">
+        <img id="start-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fstart.PNG?1542200657765">
 
 
-        <!-- Mixins -->
-      
+        <img id="tutorial-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Ftutorial.PNG?1542200657542">
 
-<!--         <a-mixin id="man1Move"
-                 animation__forward="property: position; from: -10 1 0;to: 10 1 0; dur:5000; autoplay:false"
-                 animation__rotate="property: rotation; from: 0 0 0;to: 0 180 0; dur:1500; autoplay:false"
-                 animation__forward2="property: position; from: 10 1 0;to: -10 1 0; dur:5000; autoplay:false"
-                 animation__rotate2="property: rotation; from: 0 180 0;to: 0 0 0; dur:1500; autoplay:false"
-        ></a-mixin> -->
-      
-       <a-mixin id="man2Move"
-               animation__man2_forward="property: position; from: -40 1 -229;to: -3 1 -272; dur:15000; autoplay:false"
-               animation__man2_rotate="property: rotation; from: 0 115 0;to: 0 295 0; dur:1500; autoplay:false"
-               animation__man2_forward2="property: position; from: -3 1 -272;to: -40 1 -229; dur:15000; autoplay:false"
-               animation__man2_rotate2="property: rotation; from: 0 295 0;to: 0 115 0; dur:1500; autoplay:false"
-        ></a-mixin>
-      
-       <a-mixin id="man3Move"
-           animation__man3_forward="property: position; from: -46 1 -529;to: -18 1 -499; dur:5000; autoplay:false"
-           animation__man3_rotate="property: rotation; from: 0 315 0;to: 0 135 0; dur:1500; autoplay:false"
-           animation__man3_forward2="property: position; from: -18 1 -499;to: -46 1 -529; dur:5000; autoplay:false"
-           animation__man3_rotate2="property: rotation; from: 0 135 0;to: 0 315 0; dur:1500; autoplay:false"
-        ></a-mixin>
 
-        
+        <img id="settings-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fsetting.PNG?1542200859939">
+
+
+        <img id="quit-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fquit.PNG?1542200657515">
+
+        <audio id="click-sound" crossorigin="anonymous"
+               src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+
+        <img id="cfm-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2FConfirm.PNG?1542120503383">
+
+
+        <a-link id="nxt" href="https://www.google.com"></a-link>
+
+        <!-- Image link template to be reused. -->
+        <script id="link" type="text/html">
+            <a-entity class="link"
+                      geometry="primitive: plane; height: 1; width: 1"
+                      material="shader: flat; src: ${thumb}"
+                      event-set__1="_event: mousedown; scale: 1 1 1"
+                      event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+                      event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+                      event-set__4="_event: mouseleave; scale: 1 1 1"
+                      set-image="on: click; target: #image-360; src: ${src}"
+                      sound="on: click; src: #click-sound"></a-entity>
+        </script>
+
+        <script id="confirm" type="text/html">
+            <a-entity class="link"
+                      geometry="primitive: plane; height: 1; width: 1"
+                      material="shader: flat; src: ${thumb}"
+                      event-set__1="_event: mousedown; scale: 1 1 1"
+                      event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+                      event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+                      event-set__4="_event: mouseleave; scale: 1 1 1"
+
+                      sound="on: click; src: #click-sound"></a-entity>
+        </script>
     </a-assets>
-  
+
+    <!-- 360-degree image. -->
+    <a-entity id="sound" sound="src: #click-sound; autoplay: true; volume: 2;"></a-entity>
+    <a-sky id="image-360" radius="10" src="#start"></a-sky>
+
+    <a-text value="Welcome to Educycle!" position="-3 1.5 -4" color="black" height="333" width="20"></a-text>
+
+    <!-- Image links. -->
+    <a-entity id="links" layout="type: line; margin: 1.5" position="-3 -1 -4" onclick="play_sound()">
+        <a-entity onclick="main_menu_links('start');" template="src: #link" data-src="#start"
+                  data-thumb="#start-thumb"></a-entity>
+    </a-entity>
+    <a-entity layout="type: line; margin: 1.5" position="-1 -1 -4" onclick="play_sound()">
+        <a-entity onclick="main_menu_links('tut');" template="src: #link" data-src="#start"
+                  data-thumb="#tutorial-thumb"></a-entity>
+    </a-entity>
+    <a-entity layout="type: line; margin: 1.5" position="1 -1 -4" onclick="play_sound()">
+        <a-entity onclick="main_menu_links('setting');" template="src: #link" data-src="#start"
+                  data-thumb="#settings-thumb"></a-entity>
+    </a-entity>
+    <a-entity layout="type: line; margin: 1.5" position="3 -1 -4" onclick="play_sound()">
+        <a-entity onclick="main_menu_links('quit');" template="src: #link" data-src="#start"
+                  data-thumb="#quit-thumb"></a-entity>
+    </a-entity>
     
-  
-    <!-- Moving Entities -->
-<!--     <a-entity id="man1" class="man1 collision" width="0" height="0" depth="0" mixin="man1Move" position="0 0 0"
-              kinematic-body>
-        <a-entity gltf-model="#manModel1" width="0" height="0" depth="0" scale="0.01 0.01 0.01" rotation="0 270 0"
-                  animation-mixer></a-entity>
-    </a-entity> -->
-   <a-entity id="man2" class="man2 collision" width="0" height="0" depth="0" mixin="man2Move" position="-40 1 -229"
-              kinematic-body>
-        <a-entity gltf-model="#manModel1" width="0" height="0" depth="0" scale="0.01 0.01 0.01" rotation="0 225 0"
-                  animation-mixer></a-entity>
+
+
+    <!-- Camera + cursor. -->
+    <a-entity camera look-controls>
+        <a-cursor id="cursor"
+                  animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+                  animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+                  event-set__1="_event: mouseenter; color: springgreen"
+                  event-set__2="_event: mouseleave; color: black"
+                  fuse="true"
+                  raycaster="objects: .link"></a-cursor>
     </a-entity>
-  
-     <a-entity id="man3" class="man3 collision" width="0" height="0" depth="0" mixin="man3Move" position="-46 1 -499"
-              kinematic-body>
-        <a-entity gltf-model="#manModel1" width="0" height="0" depth="0" scale="0.01 0.01 0.01" rotation="0 270 0"
-                  animation-mixer></a-entity>
-    </a-entity>
-<!--   -->
-  
-    <!-- Qucik time event model -->
-    <a-entity id="challenge" scale="0.03 0.03 0.03" gltf-model="#dog" width="0" height="0" depth="0" position="-30 1 10" rotation="0 270 0" kinematic-body></a-entity>
-     
-     <!-- Bonus Points! -->
-  <a-entity id="bonus" scale="0.1 0.1 0.1" gltf-model="#treasure" width="0" height="0" depth="0"
-              position="40 0 -459" static-body></a-entity>
-
-    <!-- Arrows -->
-    <a-entity ply-model="src:https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Frightarrow.ply?1542469071004"
-              rotation="-90 90 -30" position="-77 0 -65" scale="0.7 0.7 0.7"></a-entity>
-    <a-entity ply-model="src:https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Farrowdown.ply?1542470143539"
-              rotation="-90 0 0" position="-43 42 -669" scale="3 3 3"></a-entity>
-    <!-- Trees -->
-    <a-entity scale="0.1 0.1 0.1" gltf-model="#tree" width="0" height="0" depth="0" position="-10 0 -20"></a-entity>
-    <a-entity scale="0.1 0.1 0.1" gltf-model="#tree" width="0" height="0" depth="0" position="-10 0 -60"></a-entity>
-    <a-entity scale="0.1 0.1 0.1" gltf-model="#tree" width="0" height="0" depth="0" position="-10 0 -100"></a-entity>
-    <a-entity scale="0.1 0.1 0.1" gltf-model="#tree" width="0" height="0" depth="0" position="-10 0 -140"></a-entity>
-
-<!--     <a-entity gltf-model="#trafficlight" width="0" height="0" depth="0" scale="0.1 0.1 0.1" position="-15 0 -525"
-              rotation="0 90 0" animation-mixer></a-entity> -->
-<!--     <a-entity gltf-model="#trafficlight" width="0" height="0" depth="0" scale="0.1 0.1 0.1" position="7 0 -360"
-              rotation="0 -90 0" animation-mixer></a-entity> -->
-    <a-entity ply-model="src:https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fzebrapole.ply?1542978584026"
-              rotation="-90 0 0" position="-9 0 -500" scale="0.3 0.3 0.3"></a-entity>
-    <a-entity ply-model="src:https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fzebrapole.ply?1542978584026"
-              rotation="-90 0 0" position="-9 0 -355" scale="0.3 0.3 0.3"></a-entity>
-    <a-entity ply-model="src:https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fzebrapole.ply?1542978584026"
-              rotation="-90 0 0" position="15 0 -520" scale="0.3 0.3 0.3"></a-entity>
-    <a-entity ply-model="src:https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fzebrapole.ply?1542978584026"
-              rotation="-90 0 0" position="15 0 -375" scale="0.3 0.3 0.3"></a-entity>
-    <a-entity gltf-model="#trafficlight" width="0" height="0" depth="0" scale="0.1 0.1 0.1" position="-15 0 -595"
-              animation-mixer></a-entity>
-
-    <!-- Vehicles -->
-    <a-entity>
-        <a-entity scale="0.02 0.02 0.02" rotation="0 180 0" gltf-model="#yellowcar" width="0" height="0" depth="0"
-                  position="2 0 -300"></a-entity>
-        <a-animation attribute="position" dur="25000" fill="forwards" to="0 0 -370" repeat="indefinite"></a-animation>
-    </a-entity>
-    <a-entity>
-        <a-entity scale="0.05 0.05 0.05" rotation="0 0 0" gltf-model="#whitecar" width="0" height="0" depth="0"
-                  position="-7 0 -650" kinematic-body></a-entity>
-        <a-animation attribute="position" dur="25000" fill="forwards" to="0 0 350" repeat="indefinite"></a-animation>
-    </a-entity>
-    <a-entity>
-        <a-entity scale="0.05 0.05 0.05" rotation="0 0 0" gltf-model="#motorcycle" width="0" height="0" depth="0"
-                  position="30 0 -590"></a-entity>
-        <a-animation attribute="position" dur="3000" fill="forwards" to="-70 0 0" repeat="indefinite"></a-animation>
-    </a-entity>
-    <!-- Signs -->
-    <a-image src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fcrosszebra.PNG?1542979318575"
-             position="7 4 -350" height="5" width="10" rotation="0 -90 0"></a-image>
-	  <a-image src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fcrossing.png?1542820609905"
-             position="-45 4 -600" height="5" width="10" rotation="0 0 0"></a-image>
-    <a-entity scale="130 130 130" position="-155 208 -678" text-geometry="value: GOAL!; font: #optimerBoldFont; "
-              rotation="0 0 0"></a-entity>
-    <a-image src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fpedestriansign.PNG?1542885600233"
-             position="10 4 -30" height="5" width="10" rotation="0 0 0"></a-image>
-    <a-image src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Frightchallenge.PNG?1542992535480"
-              rotation="0 0 0" position="-46 7 -355" height="5" width="10"></a-image>
-    <a-image src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fgoalmenu.PNG?1543035202150"
-              rotation="0 0 0" position="-22 2.5 -677" height="5" width="5"></a-image>
-  
-    <!-- Trees -->
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0" position="-30 0 -20"></a-entity>
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0" position="-30 0 -60"></a-entity>
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0"
-              position="-30 0 -100"></a-entity>
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0"
-              position="-30 0 -140"></a-entity>
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0"
-              position="-30 0 -180"></a-entity>
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0"
-              position="-30 0 -220"></a-entity>
-    <!-- <a-gltf-model class="man1" mixin="man1Move" src="#manModel1" position="0 1 0" dynamic-body></a-gltf-model>
-   -->
-
-
-    <a-entity animation-mixer scale="0.0025 0.0025 0.0025" gltf-model="#manModel2" width="0" height="0" depth="0"
-              position="-10 0 -140"></a-entity>
-
-
-    <!-- Invisible boxes to trigger events -->
-    <a-box material="transparent:true;opacity:0" color="blue" id="goal"
-           triggerbox="triggereventname:spheretest;width:21;height:21;depth:21" position="-25- 2.5 -677" width="20"
-           depth="9" static-body geometry="width:20">
-        <a-event name="spheretest_entered" color="green"></a-event>
-        <a-event name="spheretest_exited" color="red"></a-event>
-    </a-box>
-
-    <a-box position="0 2.5 31" material="transparent:true;opacity:0" color="blue" id="quick_time_event" triggerbox="triggereventname:spheretest;width:21;height:21;depth:21" width="2" depth="9" static-body="sphereRadius:NaN" geometry="" rotation="0 90 0">
-    </a-box> 
-
-    <a-box material="transparent:true;opacity:0" color="blue" id="restricted_zone_1"
-           triggerbox="triggereventname:spheretest;width:21;height:21;depth:21"
-           position="-10.39277163688203 2.5 -67.74288580160874" width="290" depth="9" static-body="sphereRadius:NaN"
-           geometry="width:350;depth:8" rotation="-180 90 -180">
-        <a-event name="spheretest_entered" color="green"></a-event>
-        <a-event name="spheretest_exited" color="red"></a-event>
-    </a-box>
-    <a-box material="transparent:true;opacity:0" color="blue" id="restricted_zone_2"
-           triggerbox="triggereventname:spheretest;width:21;height:21;depth:21" position="-38 2.5 -410" width="310"
-           depth="7" static-body="sphereRadius:NaN" rotation="0 90 0">
-        <a-event name="spheretest_entered" color="green"></a-event>
-        <a-event name="spheretest_exited" color="red"></a-event>
-    </a-box>
-    <a-box material="transparent:true;opacity:0" color="blue" id="restricted_zone_3"
-           triggerbox="triggereventname:spheretest;width:21;height:21;depth:21"
-           position="-24.7088654936177 2.5 -248.49728480299902" width="290" depth="9" static-body="sphereRadius:NaN"
-           geometry="width:5;depth:24" rotation="0 90 0">
-        <a-event name="spheretest_entered" color="green"></a-event>
-        <a-event name="spheretest_exited" color="red"></a-event>
-    </a-box>
-    <a-box material="transparent:true;opacity:0" color="blue" id="restricted_zone_4"
-           triggerbox="triggereventname:spheretest;width:21;height:21;depth:21"
-           position="-32.32408847426282 -2.5 -657.4195054150834" width="290" depth="9" static-body="sphereRadius:NaN"
-           geometry="width:110;depth:8" rotation="0 90 0">
-        <a-event name="spheretest_entered" color="green"></a-event>
-        <a-event name="spheretest_exited" color="red"></a-event>
-    </a-box>
-    <a-box material="transparent:true;opacity:0" color="blue" id="restricted_zone_5"
-           triggerbox="triggereventname:spheretest;width:21;height:21;depth:21"
-           position="-31.6866986327166 2.5 -654.4293896227906" width="290" depth="9" static-body="sphereRadius:NaN"
-           geometry="width:7;depth:110">
-        <a-event name="spheretest_entered" color="green"></a-event>
-        <a-event name="spheretest_exited" color="red"></a-event>
-    </a-box>
-    <a-box material="transparent:true;opacity:0" color="blue" id="restricted_zone_6"
-           triggerbox="triggereventname:spheretest;width:21;height:21;depth:21"
-           position="24.44508305762973 2.5 -443.0718900329911" width="290" depth="9" static-body="sphereRadius:NaN"
-           geometry="width:110;depth:5" rotation="0 90 0">
-        <a-event name="spheretest_entered" color="green"></a-event>
-        <a-event name="spheretest_exited" color="red"></a-event>
-    </a-box>
-    <a-box material="transparent:true;opacity:0" color="blue" id="plus_zone_1"
-           triggerbox="triggereventname:spheretest;width:21;height:21;depth:21"
-           position="-22.702044151578896 2.5 -595.563010194831" width="290" depth="9" static-body="sphereRadius:NaN"
-           geometry="width:5;depth:5">
-        <a-event name="spheretest_entered" color="green"></a-event>
-        <a-event name="spheretest_exited" color="red"></a-event>
-    </a-box>
-    <a-box material="transparent:true;opacity:0" color="blue" id="plus_zone_3"
-           triggerbox="triggereventname:spheretest;width:21;height:21;depth:21"
-           position="-14.847086954987454 2.5 -516.2716154461406" width="290" depth="9" static-body="sphereRadius:NaN"
-           geometry="width:4;depth:4">
-        <a-event name="spheretest_entered" color="green"></a-event>
-        <a-event name="spheretest_exited" color="red"></a-event>
-    </a-box>
-    <a-box material="transparent:true;opacity:0" color="blue" id="plus_zone_4"
-           triggerbox="triggereventname:spheretest;width:21;height:21;depth:21"
-           position="9.440297514736038 2.5 -368.90207233151705" width="290" depth="9" static-body="sphereRadius:NaN"
-           geometry="width:4;depth:4">
-        <a-event name="spheretest_entered" color="green"></a-event>
-        <a-event name="spheretest_exited" color="red"></a-event>
-    </a-box>
-
-
 </a-scene>
-
+<script src="menu.js"></script>
 </body>
-
 </html>
 
