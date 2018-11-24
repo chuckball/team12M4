@@ -198,6 +198,7 @@ function updateScore(num) {
   score.attributes.value.textContent = highScore.toString();
   localStorage.setItem('finalScore', highScore.toString());
 }
+
 function addCollisionEvents()
 {
   var cameraEl = document.querySelector('[camera]');
