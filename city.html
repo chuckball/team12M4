@@ -49,7 +49,7 @@
 <!--     <a-sky rotation="0 180 0" src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fdaypark.jpg?1542896055834"></a-sky>
  -->
     <a-plane static-body
-             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fgrassroad1.jpg?1542991501273"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fcity.jpg?1543043146094"
              rotation="-90 0 0" height="900" width="100"  position="-5 0 -270"></a-plane>
 
     <a-light type="ambient" color="#666"></a-light>
@@ -80,6 +80,8 @@
                       src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/razor_scooter/scene.gltf"></a-asset-item>
         <a-asset-item id="motorcycle"
                       src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/motorcycle2/scene.gltf"></a-asset-item>
+        <a-asset-item id="building"
+                      src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/bulding/scene.gltf"></a-asset-item>
         <a-asset-item id="dog" 
                       src="https://cdn.rawgit.com/xXWingadiumXx/AFrame-Models/master/dog_run_cycle_test/scene.gltf"></a-asset-item>
          <a-asset-item id="treasure" 
@@ -180,10 +182,10 @@
     <a-entity ply-model="src:https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Farrowdown.ply?1542470143539"
               rotation="-90 0 0" position="-43 42 -669" scale="3 3 3"></a-entity>
     <!-- Trees -->
-    <a-entity scale="0.1 0.1 0.1" gltf-model="#tree" width="0" height="0" depth="0" position="-10 0 -20"></a-entity>
+<!--     <a-entity scale="0.1 0.1 0.1" gltf-model="#tree" width="0" height="0" depth="0" position="-10 0 -20"></a-entity>
     <a-entity scale="0.1 0.1 0.1" gltf-model="#tree" width="0" height="0" depth="0" position="-10 0 -60"></a-entity>
     <a-entity scale="0.1 0.1 0.1" gltf-model="#tree" width="0" height="0" depth="0" position="-10 0 -100"></a-entity>
-    <a-entity scale="0.1 0.1 0.1" gltf-model="#tree" width="0" height="0" depth="0" position="-10 0 -140"></a-entity>
+    <a-entity scale="0.1 0.1 0.1" gltf-model="#tree" width="0" height="0" depth="0" position="-10 0 -140"></a-entity> -->
 
 <!--     <a-entity gltf-model="#trafficlight" width="0" height="0" depth="0" scale="0.1 0.1 0.1" position="-15 0 -525"
               rotation="0 90 0" animation-mixer></a-entity> -->
@@ -228,17 +230,39 @@
     <a-image src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Frightchallenge.PNG?1542992535480"
               rotation="0 0 0" position="-46 7 -355" height="5" width="10"></a-image>
   
-    <!-- Trees -->
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0" position="-30 0 -20"></a-entity>
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0" position="-30 0 -60"></a-entity>
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0"
-              position="-30 0 -100"></a-entity>
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0"
-              position="-30 0 -140"></a-entity>
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0"
-              position="-30 0 -180"></a-entity>
-    <a-entity scale="0.01 0.01 0.01" gltf-model="#tree2" width="0" height="0" depth="0"
-              position="-30 0 -220"></a-entity>
+    <!-- buildings -->
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0" position="-40 0 -20" rotation="0 90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0" position="-40 0 -60" rotation="0 90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0"
+              position="-40 0 -100" rotation="0 90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0"
+              position="-40 0 -140" rotation="0 90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0"
+              position="-40 0 -180" rotation="0 90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0"
+              position="-40 0 -220" rotation="0 90 0"></a-entity>
+  
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0" position="30 0 -20" rotation="0 -90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0" position="30 0 -60" rotation="0 -90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0"
+              position="30 0 -100" rotation="0 -90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0"
+              position="30 0 -140" rotation="0 -90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0"
+              position="30 0 -180" rotation="0 -90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0"
+              position="30 0 -220" rotation="0 -90 0"></a-entity>
+  
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0" position="30 0 -320" rotation="0 -90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0" position="30 0 -550" rotation="0 -90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0"
+              position="30 0 -620" rotation="0 -90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0"
+              position="30 0 -655" rotation="0 -90 0"></a-entity>
+    <a-entity scale="1 1 1" gltf-model="#building" width="0" height="0" depth="0"
+              position="30 0 -690" rotation="0 -90 0"></a-entity>
+
+  
     <!-- <a-gltf-model class="man1" mixin="man1Move" src="#manModel1" position="0 1 0" dynamic-body></a-gltf-model>
    -->
 
