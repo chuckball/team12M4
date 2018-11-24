@@ -122,7 +122,7 @@ function play_sound()
 //     }
 // }
 
-function change_veh_text()
+function change_veh_text(a)
 {
   play_sound();
   
@@ -132,7 +132,7 @@ function change_veh_text()
   console.log(tx);
   
 
-    if (check == "#bicycle") 
+    if ( a == 'b') 
     {
         tx.attributes.value.textContent = "Scooter";
     }
