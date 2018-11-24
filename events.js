@@ -63,7 +63,8 @@ function init()
 
 
 
-function ringBellGood() {
+function ringBellGood() 
+{
     var score = document.getElementById("score");
     var wrongthings = document.getElementById("wrongthings");
     var goodthings = document.getElementById("goodthings");
@@ -273,6 +274,10 @@ function addCollisionEvents()
     wrongListTimeout()
   }
   else if (e.detail.body.el.id == "quick_time_event")
+  {
+  
+  }
+  else if (e.detail.body.el.id == "goal")
   {
   
   }
