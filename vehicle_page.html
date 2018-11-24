@@ -14,29 +14,24 @@
 <body>
 <a-scene>
     <a-assets>
-        <img id="start" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fmordern.jpg?1542204127841">
-        <img id="start-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fstart.PNG?1542200657765">
+        <img id="pmd" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fpark.jpg?1542033280985">
+        <img id="pmd-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fpmd.jpg?1542123271200">
 
-
-        <img id="tutorial-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Ftutorial.PNG?1542200657542">
-
-
-        <img id="settings-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fsetting.PNG?1542200859939">
-
-
-        <img id="quit-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fquit.PNG?1542200657515">
+        <img id="bicycle" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fpark.jpg?1542033280985">
+        <img id="bicycle-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fbicycle.jpg?1542123271703">
 
         <audio id="click-sound" crossorigin="anonymous"
-               src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-
+               src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fclick.ogg?1542978996494"></audio>
+       
         <img id="cfm-thumb" crossorigin="anonymous"
              src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2FConfirm.PNG?1542120503383">
 
+        <img id="back-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fback.PNG?1542205366899">
 
         <a-link id="nxt" href="https://www.google.com"></a-link>
 
@@ -49,8 +44,9 @@
                       event-set__2="_event: mouseup; scale: 1.2 1.2 1"
                       event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
                       event-set__4="_event: mouseleave; scale: 1 1 1"
+                      event-set__5="_event: onclick; change_veh_text()"
                       set-image="on: click; target: #image-360; src: ${src}"
-                      sound="on: click; src: #click-sound"></a-entity>
+                      ></a-entity>
         </script>
 
         <script id="confirm" type="text/html">
@@ -67,29 +63,36 @@
     </a-assets>
 
     <!-- 360-degree image. -->
+    <a-sky id="image-360" radius="10" src="#pmd"></a-sky>
+
+    <a-text value="Select a Vehicle" position="-0.5 0.5 -4" font="exo2bold" color="red" height="5" ></a-text>
+    <a-text id="veh" value="" font="exo2bold" color="white" height="5" position="-3 0.5 -4"></a-text>
+    <a-text id="title" value="Vehicle Selected: " font="exo2bold" color="white" height="5" position="-5 0.5 -4"></a-text>
+  
     <a-entity id="sound" sound="src: #click-sound; autoplay: true; volume: 2;"></a-entity>
-    <a-sky id="image-360" radius="10" src="#start"></a-sky>
-
-    <a-text value="Welcome to Educycle!" position="-3 1.5 -4" color="black" height="333" width="20"></a-text>
-
+  
     <!-- Image links. -->
-    <a-entity id="links" layout="type: line; margin: 1.5" position="-3 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('start');" template="src: #link" data-src="#start"
-                  data-thumb="#start-thumb"></a-entity>
+    <a-entity id="links" layout="type: line; margin: 1.5" position="-1 -1 -4" onclick="play_sound();">
+        <a-entity template="src: #link" data-src="#bicycle" data-thumb="#bicycle-thumb" sound="src: #click-sound;  volume: 2;" onclick="change_veh_text()"></a-entity>
     </a-entity>
-    <a-entity layout="type: line; margin: 1.5" position="-1 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('tut');" template="src: #link" data-src="#start"
-                  data-thumb="#tutorial-thumb"></a-entity>
+  
+    <a-entity id="linkss" layout="type: line; margin: 1.5" position="1 -1 -4" onclick="play_sound();">
+        <a-entity template="src: #link" data-src="#pmd" data-thumb="#pmd-thumb" sound="src: #click-sound;  volume: 2;" onclick="change_veh_text()"></a-entity>
     </a-entity>
-    <a-entity layout="type: line; margin: 1.5" position="1 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('setting');" template="src: #link" data-src="#start"
-                  data-thumb="#settings-thumb"></a-entity>
+
+    <a-entity id="confirms" layout="type: line; margin: 1.5" position="-1 -3 -4">
+
+        <a-entity id="confirmbtn" onclick="goto_level_page();" template="src: #confirm" data-src="#nxt"
+                  data-thumb="#cfm-thumb"></a-entity>
+
     </a-entity>
-    <a-entity layout="type: line; margin: 1.5" position="3 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('quit');" template="src: #link" data-src="#start"
-                  data-thumb="#quit-thumb"></a-entity>
+  
+    <a-entity id="confirmss" layout="type: line; margin: 1.5" position="1 -3 -4">
+
+        <a-entity id="backbtn" onclick="window.location.replace('https://2x01t12.glitch.me/main_menu_page.html');"
+                  template="src: #confirm" data-src="#nxt" data-thumb="#back-thumb"></a-entity>
+
     </a-entity>
-    
 
 
     <!-- Camera + cursor. -->

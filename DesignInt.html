@@ -407,7 +407,7 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">Message</a>
                             <a class="dropdown-item" href="#">Settings</a>
-                            <a class="dropdown-item" href="https://team12-ict2201.glitch.me/login.html">Log Out</a>
+                            <a class="dropdown-item" href="https://2x01t12.glitch.me/login.html">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -423,7 +423,7 @@
                         <div class="card-body">
                             <h4 class="header-title">Number Of Vehicles</h4>
                             <!-- <div id="user-statistics"></div> -->
-                            <input type="range" min="4" max="5" value="4" class="slider" id="myRange">
+                            <input type="range" min="2" max="4" value="2" class="slider" id="vehicleRange">
                             <p>Value: <span id="demo"></span></p>
                             <br>
                             <!--                               <input type="button" class="btn btn-info btn-md" value="Submit"> -->
@@ -435,7 +435,7 @@
                         <div class="card-body">
                             <h4 class="header-title">Number Of Pedestrian</h4>
                             <!-- <div id="user-statistics"></div> -->
-                            <input type="range" min="5" max="6" value="5" class="slider" id="myRange2">
+                            <input type="range" min="2" max="4" value="3" class="slider" id="pedestrianRange">
                             <p>Value: <span id="demo2"></span></p>
                             <br>
                             <!--                                 <input type="button" class="btn btn-info btn-md" value="Submit"> -->
@@ -447,27 +447,69 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="header-title">Environment</h4>
-                            <select name="environment">
-                                <option value="Park" selected>Park</option>
+                            <select name="environment" id="environmentpicked">
+                                <option value="Day Park" selected>Day Park</option>
+                                <option value="Night Park">Night Park</option>
                                 <option value="City">City</option>
                             </select>
                             <br>
+                            <a href="https://2x01t12.glitch.me/map_page.html"> <input type="button" class="btn btn-info btn-md" value="Preview"> </a>
                             <!--                                 <input type="button" class="btn btn-info btn-md" value="Submit"> -->
                         </div>
                     </div>
                 </div>
+                <script>
+                  
+                  
+                  function printAlertEasy() {
+                    var e = document.getElementById("environmentpicked");
+                    var environmentStr = e.options[e.selectedIndex].value;
+                  
+                    var vehicleNum = document.getElementById("vehicleRange").value;
+                    var pedestrianNum = document.getElementById("pedestrianRange").value;
+                    
+                    var str = "You have set Easy level to have an average of:\nVehicles - " + vehicleNum + "\nPedestrians - " + pedestrianNum + "\nEnvironment -" + environmentStr
+                    alert(str)
+                  }
+                  
+                  
+                  function printAlertMedium() {
+                    var e = document.getElementById("environmentpicked");
+                    var environmentStr = e.options[e.selectedIndex].value;
+                  
+                    var vehicleNum = document.getElementById("vehicleRange").value;
+                    var pedestrianNum = document.getElementById("pedestrianRange").value;
+                    
+                    var str = "You have set Medium level to have an average of:\nVehicles - " + vehicleNum + "\nPedestrians - " + pedestrianNum + "\nEnvironment -" + environmentStr
+                    alert(str)
+                  }
+                  function printAlertHard() {
+                    var e = document.getElementById("environmentpicked");
+                    var environmentStr = e.options[e.selectedIndex].value;
+                  
+                    var vehicleNum = document.getElementById("vehicleRange").value;
+                    var pedestrianNum = document.getElementById("pedestrianRange").value;
+                    
+                    var str = "You have set Hard level to have an average of:\nVehicles - " + vehicleNum + "\nPedestrians - " + pedestrianNum + "\nEnvironment -" + environmentStr
+                    alert(str)
+                  }
+
+                </script>
                 <div class="col-lg-2 mt-5">
-                    <a href=""> <input type="button" class="btn btn-info btn-md" value="Set as easy mode"> </a>
+                    <input type="button" class="btn btn-info btn-md" value="Set as easy mode" onclick="printAlertEasy()">
+                </div>
+                <div class="col-lg-2 mt-5">
+                    <input type="button" class="btn btn-info btn-md" value="Set as medium mode" onclick="printAlertMedium()">
                 </div>
                 <div class="col-lg-2 mt-5">
 
-                    <a href=""> <input type="button" class="btn btn-info btn-md" value="Set as hard mode"> </a>
+                    <input type="button" class="btn btn-info btn-md" value="Set as hard mode" onclick="printAlertHard()">
 
                 </div>
-                <div class="col-lg-4 mt-5"></div>
+                <div class="col-lg-2 mt-5"></div>
                 <div class="col-lg-1 mt-5">
 
-                    <a href="https://team12-ict2201.glitch.me/"> <input type="button" class="btn btn-success btn-md"
+                    <a href="https://2x01t12.glitch.me/main_menu_page.html"> <input type="button" class="btn btn-success btn-md"
                                                                         value="Start Game"> </a>
 
                 </div>
@@ -703,8 +745,8 @@
 <script src="https://cdn.rawgit.com/seiyria/bootstrap-slider/master/dependencies/js/modernizr.js"></script>
 <script>
 
-    var slider = document.getElementById("myRange");
-    var slider2 = document.getElementById("myRange2");
+    var slider = document.getElementById("vehicleRange");
+    var slider2 = document.getElementById("pedestrianRange");
     var output = document.getElementById("demo");
     var output2 = document.getElementById("demo2");
     output.innerHTML = slider.value;

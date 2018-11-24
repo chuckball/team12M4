@@ -15,21 +15,21 @@
 <a-scene>
     <a-assets>
         <img id="start" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fmordern.jpg?1542204127841">
-        <img id="start-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fstart.PNG?1542200657765">
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2F33668382931_12240c6935_o.jpg?1536413956692">
+        <img id="easy-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Feasymenu.PNG?1542896481682">
 
 
-        <img id="tutorial-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Ftutorial.PNG?1542200657542">
+        <img id="medium-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fmediummenu.PNG?1542896481317">
 
 
-        <img id="settings-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fsetting.PNG?1542200859939">
+        <img id="hard-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Fhardmenu.PNG?1542896480690">
 
 
-        <img id="quit-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fquit.PNG?1542200657515">
+        <img id="random-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Frandommenu.PNG?1542901964005">
 
         <audio id="click-sound" crossorigin="anonymous"
                src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
@@ -68,28 +68,27 @@
 
     <!-- 360-degree image. -->
     <a-entity id="sound" sound="src: #click-sound; autoplay: true; volume: 2;"></a-entity>
-    <a-sky id="image-360" radius="10" src="#start"></a-sky>
+    <a-sky id="image-360" radius="20" src="#start"></a-sky>
 
-    <a-text value="Welcome to Educycle!" position="-3 1.5 -4" color="black" height="333" width="20"></a-text>
+    <a-text value="Select a difficulty" position="-3 1.5 -4" color="black" height="333" width="20"></a-text>
 
     <!-- Image links. -->
-    <a-entity id="links" layout="type: line; margin: 1.5" position="-3 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('start');" template="src: #link" data-src="#start"
-                  data-thumb="#start-thumb"></a-entity>
+    <a-entity layout="type: line; margin: 1.5" position="-3 -1 -4" onclick="play_sound()">
+        <a-entity onclick="levels_links('easy');" template="src: #link" data-src="#start"
+                  data-thumb="#easy-thumb"></a-entity>
     </a-entity>
     <a-entity layout="type: line; margin: 1.5" position="-1 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('tut');" template="src: #link" data-src="#start"
-                  data-thumb="#tutorial-thumb"></a-entity>
+        <a-entity onclick="levels_links('medium');" template="src: #link" data-src="#start"
+                  data-thumb="#medium-thumb"></a-entity>
     </a-entity>
     <a-entity layout="type: line; margin: 1.5" position="1 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('setting');" template="src: #link" data-src="#start"
-                  data-thumb="#settings-thumb"></a-entity>
+        <a-entity onclick="levels_links('hard');" template="src: #link" data-src="#start"
+                  data-thumb="#hard-thumb"></a-entity>
     </a-entity>
     <a-entity layout="type: line; margin: 1.5" position="3 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('quit');" template="src: #link" data-src="#start"
-                  data-thumb="#quit-thumb"></a-entity>
+        <a-entity onclick="levels_links('random');" template="src: #link" data-src="#start"
+                  data-thumb="#random-thumb"></a-entity>
     </a-entity>
-    
 
 
     <!-- Camera + cursor. -->

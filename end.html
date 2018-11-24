@@ -9,27 +9,19 @@
     <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
     <script src="https://unpkg.com/aframe-layout-component@4.3.1/dist/aframe-layout-component.min.js"></script> 
     <script src="https://unpkg.com/aframe-template-component@^3.1.1/dist/aframe-template-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-slideshow-component/dist/aframe-slideshow-component.min.js"></script>
+  
     <script src="set-image.js"></script>
 </head>
 <body>
 <a-scene>
     <a-assets>
         <img id="start" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fmordern.jpg?1542204127841">
-        <img id="start-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fstart.PNG?1542200657765">
+             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2F40368456935_47d78030e6_o.jpg?1536413175568">
 
 
-        <img id="tutorial-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Ftutorial.PNG?1542200657542">
-
-
-        <img id="settings-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fsetting.PNG?1542200859939">
-
-
-        <img id="quit-thumb" crossorigin="anonymous"
-             src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2Fquit.PNG?1542200657515">
+        <img id="review-thumb" crossorigin="anonymous"
+             src="https://cdn.glitch.com/fca045dc-2aa5-4239-8b1d-02ef5111ada6%2Freviewmenu.PNG?1543033761019">
 
         <audio id="click-sound" crossorigin="anonymous"
                src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
@@ -38,8 +30,8 @@
              src="https://cdn.glitch.com/77b3de5c-4256-4595-bbdc-29d47f1293c4%2FConfirm.PNG?1542120503383">
 
 
-        <a-link id="nxt" href="https://www.google.com"></a-link>
-
+        <a-link id="nxt" href="https://2x01t12.glitch.me/main_menu_page.html"></a-link>
+        
         <!-- Image link template to be reused. -->
         <script id="link" type="text/html">
             <a-entity class="link"
@@ -64,33 +56,26 @@
 
                       sound="on: click; src: #click-sound"></a-entity>
         </script>
+
+    
     </a-assets>
 
     <!-- 360-degree image. -->
     <a-entity id="sound" sound="src: #click-sound; autoplay: true; volume: 2;"></a-entity>
-    <a-sky id="image-360" radius="10" src="#start"></a-sky>
-
-    <a-text value="Welcome to Educycle!" position="-3 1.5 -4" color="black" height="333" width="20"></a-text>
-
+    <a-sky id="image-360" radius="20" src="#start"></a-sky>
+    <a-plane height="20" width="20" position="1.075 1.5 -5.987" material="color:#a4b8f4"
+             geometry="height:6.69;width:15"></a-plane>
+    <a-plane height="20" width="20" position="0.98 0.755 -5.297" material="color:#658dc9"
+             geometry="height:3.94;width:12"></a-plane>
+    <a-text id="rank" position="-3.18 2.139 -5.227" color="black" height="333" width="20" text="value:Rank A"></a-text>
+    <a-text id="finalScore" position="-3.183 0.924 -5.227" color="black" height="333" width="20"
+            text="value:Score: 100"></a-text>
+ 
     <!-- Image links. -->
-    <a-entity id="links" layout="type: line; margin: 1.5" position="-3 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('start');" template="src: #link" data-src="#start"
-                  data-thumb="#start-thumb"></a-entity>
+    <a-entity id="links" layout="type: line; margin: 1.5" position="3 -0.3 -4" onclick="play_sound()">
+        <a-entity onclick="review_links('review');" template="src: #link" data-src="#start"
+                  data-thumb="#review-thumb"></a-entity>
     </a-entity>
-    <a-entity layout="type: line; margin: 1.5" position="-1 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('tut');" template="src: #link" data-src="#start"
-                  data-thumb="#tutorial-thumb"></a-entity>
-    </a-entity>
-    <a-entity layout="type: line; margin: 1.5" position="1 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('setting');" template="src: #link" data-src="#start"
-                  data-thumb="#settings-thumb"></a-entity>
-    </a-entity>
-    <a-entity layout="type: line; margin: 1.5" position="3 -1 -4" onclick="play_sound()">
-        <a-entity onclick="main_menu_links('quit');" template="src: #link" data-src="#start"
-                  data-thumb="#quit-thumb"></a-entity>
-    </a-entity>
-    
-
 
     <!-- Camera + cursor. -->
     <a-entity camera look-controls>
@@ -106,4 +91,3 @@
 <script src="menu.js"></script>
 </body>
 </html>
-

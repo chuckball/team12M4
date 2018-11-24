@@ -6,7 +6,7 @@ function login()
   
   if (username == "admin" && password == "admin")
   {
-        window.location.replace("https://team12-ict2201.glitch.me/DesignInt.html");
+        window.location.replace("https://2x01t12.glitch.me/DesignInt.html");
   } 
   else
   {     
